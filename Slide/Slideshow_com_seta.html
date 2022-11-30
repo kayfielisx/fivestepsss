@@ -1,0 +1,147 @@
+<!doctype HTML>
+<HTML lang="pt-br">
+  <HEAD>
+    <META charset="UTF-8"/>
+	<TITLE>Slide Show com Seta</TITLE>
+	<STYLE type="text/css">
+	  #carrossel img
+	  {
+	  height:100%;
+	  width:100%;
+	  border-radius:5px;
+	  box-shadow:2px 4px 2px rgb(100,100,100);
+	  }
+	  
+	  #carrossel
+	  {
+	  height:350px;
+	  width:100%;
+	  left:0%;
+	  rigth:0%;
+	  margin:0%;
+	  }
+	  
+	  figcaption
+	  {
+	    text-align:center;
+		height:auto;
+		font-size:2.5vw;
+		font-family:"Lucida Sans","Bauhaus 93","Tahoma";
+		color:rgb(255,255,255);
+		background:radial-gradient(rgb(68,11,61),rgb(20,28,163),rgb(0,81,24),rgb(20,28,163),rgb(68,11,61));
+	  }
+	  
+	  .ante
+	  {
+		left:7%;
+	  }
+	  
+	  .prox
+	  {
+		right:7%;
+	  }
+	  
+	  .ante, .prox
+	  {	
+		top:22%;
+		font-weight:bold;
+		font-size:4vw;
+		text-align:center;
+		display:in-line;
+		width:5%;
+		background-color:rgba(100,100,100,0.7);
+		position:absolute;
+	  }
+	  
+	  .ante:hover, .prox:hover
+	  {
+		background-color:rgba(20,20,20,0.7);
+		cursor:pointer;
+	  }
+	</STYLE>
+ </HEAD>
+  <BODY>
+    <FIGURE id="carrossel">
+		<IMG src="cachoeira300.jpeg" name="slide" id="slide"/>
+		<FIGCAPTION></FIGCAPTION>
+	</FIGURE>
+	<p class="ante" onClick="Anterior()">&#60;</p>
+	<p class="prox" onClick="Proximo()">&#62;</p>
+	
+    <SCRIPT language="JavaScript">
+	var contador = 1; //variável pública criada fora da function
+	var img1="cachoeira300.jpeg";
+	var img2="montanhass300.jpeg";
+	var img3="raio_de_sol299.jpeg";
+	var tempo=1800; //1800(milessegundos) : 1000 (milessegundo) = 1.8s
+	var exibir=setInterval("Exibindo()",tempo);
+	  
+	function Exibindo()
+	{
+	  	document.images["slide"].src=eval("img"+contador);
+		
+		if (contador==1)
+			document.querySelector("figcaption").innerHTML = "Águas maravilhosas";
+		else if (contador==2)
+			document.querySelector("figcaption").innerHTML = "Tranquilidade e Paz nas Montanhas";
+		else
+			document.querySelector("figcaption").innerHTML = "Muita energia do sol";
+				  
+		if (contador<3)
+			contador++;
+		else
+			contador=1;
+	}
+	  
+	function Anterior()
+	{
+		clearInterval(exibir);//interrompe o looping
+		
+		if (contador == 2)
+			contador = 3;
+		else if (contador ==3)
+			contador = 1;
+		else
+			contador = 2;
+			
+		document.images["slide"].src=eval("img"+contador);
+		
+		tor("figcaption").innerHTML = "Águas maravilhosas";
+		else if (contador==2)
+			document.querySelectif (contador==1)
+			document.querySelecor("figcaption").innerHTML = "Tranquilidade e Paz nas Montanhas";
+		else
+			document.querySelector("figcaption").innerHTML = "Muita energia do sol";
+				  
+		if (contador<3)
+			contador++;
+		else
+			contador=1;
+				
+		exibir=setInterval("Exibindo()",tempo);
+	}
+	 
+	 function Proximo()
+	{
+		clearInterval(exibir);//interrompe o looping 
+		document.images["slide"].src=eval("img"+contador);
+		
+		if (contador==1)
+			document.querySelector("figcaption").innerHTML = "Águas maravilhosas";
+		else if (contador==2)
+			document.querySelector("figcaption").innerHTML = "Tranquilidade e Paz nas Montanhas";
+		else
+			document.querySelector("figcaption").innerHTML = "Muita energia do sol";
+				  
+		if (contador<3)
+			contador++;
+		else
+			contador=1;
+			
+		exibir=setInterval("Exibindo()",tempo);
+	}
+    </SCRIPT>
+	
+  </BODY>
+</HTML>
+   

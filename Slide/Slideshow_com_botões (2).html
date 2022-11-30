@@ -1,0 +1,70 @@
+<!doctype HTML>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8"/>
+	<meta name="author" content="Eu"/>
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale:1.0"/>
+	<title>exemplo de slide show</title>
+	<style type="text/css">
+		#img_sslide
+		{
+			height:70%; 
+			width:100%;
+			border-radius:20px;
+			box-shadow:2px 4px 12px 3px rgb(100,100,100);
+		}
+	  
+		#carrossel
+		{
+			height:350px; //altura fixa
+			width:100%;
+		}
+	  
+		#botoes_slide
+		{
+			margin-left:27%;
+			font-family:Arial;
+			font-size:2.4vw;
+		}
+	</style>
+  </head>
+  <body>
+   	<section id="carrossel">
+		<img id="img_sslide" src="cachoeira300.jpeg" name="slide"/>
+		<form id="botoes_slide">
+			<input type="radio" id="v1" name="m" onClick="Muda(1)"/>Cachoeira
+			<input type="radio" id="v2" name="m" onClick="Muda(2)"/>Montanhas
+			<input type="radio" id="v3" name="m" onClick="Muda(3)"/>Raio de Sol
+		</form>
+		
+	</section>
+	
+    <script language="JavaScript">
+		var contador = 1; //variável pública criada fora da function
+		var img1="cachoeira300.jpeg";
+		var img2="montanhass300.jpeg";
+		var img3="raio_de_sol299.jpeg";
+		var tempo=1800; //1800(milessegundos) : 1000 (milessegundo) = 1,8s
+		var exibir=setInterval("Exibindo()",tempo); // Inicia o looping trocando imagens de 1,8s em 1,8s
+	  
+		function Exibindo() 
+		{
+			document.images["slide"].src=eval("img"+contador);
+			document.getElementById("v"+contador).checked=true;
+				  
+			if (contador<3)
+				contador++;
+			else
+				contador=1;
+		}
+				
+	 	function Muda(x)
+		{
+			clearInterval(exibir);//interrompe o que está rodando no setInterval
+			contador=x;
+			exibir=setInterval("Exibindo()",tempo); //recomeçar o looping
+		}
+    </script> 
+  </body>
+</html>
+   
